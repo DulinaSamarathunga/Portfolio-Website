@@ -29,9 +29,6 @@ portfolio-website/
 │
 └── README.md # Project documentation
 
-markdown
-Copy code
-
 ## Setup Instructions
 1. **Clone the repository**
    git clone <repository-url>
