@@ -22,12 +22,12 @@ This is a responsive and modern personal portfolio website built using HTML, CSS
 ## Project Structure
 portfolio-website/
 │
-├── index.html # Main HTML file containing layout and all sections
-├── styles.css # Complete styling and responsive design
-├── script.js # JavaScript for interactions and EmailJS handling
-├── Images/ # Profile picture, logos, skill icons, project images
+├── index.html                # Main HTML file containing layout and all sections
+├── styles.css                # Complete styling and responsive design
+├── script.js                 # JavaScript for interactions and EmailJS handling
+├── Images/                   # Profile picture, logos, skill icons, project images
 │
-└── README.md # Project documentation
+└── README.md                 # Project documentation
 
 ## Setup Instructions
 1. **Clone the repository**
