@@ -20,6 +20,7 @@ This is a responsive and modern personal portfolio website built using HTML, CSS
 - **Hosting Options**: GitHub Pages, Netlify, Vercel (optional)
 
 ## Project Structure
+```
 portfolio-website/
 │
 ├── index.html                # Main HTML file containing layout and all sections
@@ -28,11 +29,14 @@ portfolio-website/
 ├── Images/                   # Profile picture, logos, skill icons, project images
 │
 └── README.md                 # Project documentation
+```
 
 ## Setup Instructions
 1. **Clone the repository**
-   git clone <repository-url>
-   cd portfolio-website
+  ```
+  git clone <repository-url>
+  cd portfolio-website
+  ```
 
 2. **Ensure folder structure is correct**
 - Make sure the `Images/` folder exists with all required images.
