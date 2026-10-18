@@ -1,0 +1,16 @@
+# Netlify build settings. These override anything set in the Netlify dashboard,
+# so the old static-site settings can't break the Next.js build.
+# The Next.js runtime plugin is enabled explicitly below (see [[plugins]]).
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 requires Node.js 20.9 or newer
+  NODE_VERSION = "22"
+
+# Explicitly enable Netlify's Next.js runtime. Without it, a site originally set up
+# as a static site publishes the raw .next folder and every page returns 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
