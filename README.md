@@ -1,71 +1,45 @@
-# Portfolio Website
+# Portfolio Website (Next.js)
 
-## Overview
-This is a responsive and modern personal portfolio website built using HTML, CSS, and JavaScript. It showcases my projects, technical skills, certifications, experience, and contact information in a clean and highly interactive interface. The website is designed with smooth animations, a dark neon-accent theme, and a fully optimized layout for mobile and desktop devices. It includes a functional contact form using EmailJS, social media integration, and a well-structured project gallery.
+Next.js (App Router) version of the original HTML/CSS/JS portfolio.
 
-## Key Features
-- **Hero Section**: Introduction with animated text, profile image, CTA buttons, and social links.
-- **About Section**: Personal summary, education history, approach to development, and professional statistics.
-- **Skills Section**: Categorized skill sets covering Languages, AI/ML, Web Development, and Tools & Cloud.
-- **Project Showcase**: Interactive cards with hover effects, GitHub links, and technology tags.
-- **Contact Form**: EmailJS-powered form for sending messages directly to email.
-- **Responsive Layout**: Fully optimized for desktop, tablet, and mobile screens.
-- **Smooth Animations**: Fade-in, hover transitions, and scrolling effects across sections.
-- **Navigation Menu**: Sticky navbar with anchor links and mobile hamburger menu.
+## Getting started
 
-## Tech Stack
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling & UI Libraries**: Google Fonts (Inter, Poppins), Font Awesome Icons
-- **Email Service**: EmailJS (for form submissions)
-- **Hosting Options**: GitHub Pages, Netlify, Vercel (optional)
-
-## Project Structure
-```
-portfolio-website/
-│
-├── index.html                # Main HTML file containing layout and all sections
-├── styles.css                # Complete styling and responsive design
-├── script.js                 # JavaScript for interactions and EmailJS handling
-├── Images/                   # Profile picture, logos, skill icons, project images
-│
-└── README.md                 # Project documentation
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
 ```
 
-## Setup Instructions
-1. **Clone the repository**
-  ```
-  git clone <repository-url>
-  cd portfolio-website
-  ```
+## Structure
 
-2. **Ensure folder structure is correct**
-- Make sure the `Images/` folder exists with all required images.
+```
+app/
+  layout.js        # <html>, metadata, Geist fonts, Font Awesome stylesheet
+  page.js          # assembles the sections
+  globals.css      # all styling (colour tokens at the top)
+  icon.svg         # favicon
+components/        # Navbar, Hero, About, Skills, Projects, Contact, ContactForm, Footer, CommandPalette, ClientEffects, ...
+lib/
+  data.js          # skills, projects, certifications, links: edit content here
+  emailjs.js       # EmailJS IDs (can be overridden with env vars, see .env.example)
+public/Images/     # all images
+```
 
-3. **EmailJS Configuration**
-- In `script.js`, replace:
-  - `publicKey`
-  - `service ID`
-  - `template ID`
-- These must match your EmailJS dashboard settings for the contact form to work.
+## Interactive features
 
-4. **Run the Website**
-- Option 1: Open `index.html` directly in your browser.
-- Option 2 (Recommended): Use VS Code Live Server  
-  ```
-  Right-click index.html → Open with Live Server
-  ```
+- **Command palette**: `Ctrl/⌘ + K` (or the search button in the navbar) to jump to sections, open profiles or copy the email.
+- **Navbar**: sliding active-section indicator; hides while scrolling down, reappears on scroll up.
+- **Hero**: cursor-following glow, rotating gradient border.
+- **Skills**: filter tabs (arrow keys supported) over all skills; tiles glow in each tool's brand `color`.
+- **Cards**: cursor spotlight (`.spotlight`) and 3D tilt (`.tilt`) via `components/ClientEffects.jsx`.
+- **Contact form**: floating labels, inline validation, character counter, `Ctrl/⌘ + Enter` to send, toast notifications.
+- **Back to top**: floating button with a scroll-progress ring.
 
-## Usage
-- Update text content directly in `index.html` to personalize details.
-- Replace images in the `Images/` folder with your own visuals.
-- Modify colors, font sizes, spacing, or animations in `styles.css`.
-- Use the “Projects” section to link your GitHub repositories or live demos.
-- Verify EmailJS integration to ensure messages from the contact form are delivered.
+All motion is disabled for users with "reduce motion" enabled, and pointer effects only run on mouse/trackpad devices.
 
-## Contributing
-Contributions are welcome. Please fork the project, create a new branch, make your changes, and submit a pull request.  
-Ensure all updates follow clean code standards and maintain design consistency.
+## Deployment
 
-## License
-This project is licensed under the MIT License.  
-You may modify, distribute, or use this project with attribution.
+Hosted on Netlify: https://portfolio-dulina.netlify.app/
+
+Build settings live in `netlify.toml` (build command `npm run build`, Node 22); Netlify applies its Next.js runtime automatically. With the site linked to this GitHub repo, every push to `main` triggers a new production deploy.
